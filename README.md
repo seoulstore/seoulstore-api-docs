@@ -1,6 +1,6 @@
 # SEOULSTORE's API Documentation
 
-이 저장소는 [서울스토어](https://www.seoulstore.com)의 API 문서를 담고 있습니다.
+이 저장소는 [서울스토어](https://www.seoulstore.com)의 공개 API 문서를 담고 있습니다.
 
 **Contents**
 * [기본사항](#기본사항)
@@ -16,7 +16,7 @@
 
 **Note**
 
-현재 서울스토어의 API는 화이트리스트에 등록된 클라이언트만 사용이 가능합니다. 화이트리스트에 등록되면 self-issued access token을 발급해드리며 이것을 이용하여 서울스토어의 API를 호출할 수 있습니다.
+현재 서울스토어의 API는 화이트리스트에 등록된 클라이언트만 사용이 가능합니다. 화이트리스트에 등록되면 self-issued access token을 발급해드리며 이것을 이용하여 서울스토어의 API를 호출할 수 있습니다. 발급한 _access token_ 은 외부에 노출되지 않도록 주의하시기 바랍니다.
 
 ### Request
 
@@ -44,22 +44,6 @@ Accept-Charset: utf-8
   }
 }
 ```
-
-### Response
-
-응답에 대한 코드는 일반적인 http Response Status Code 규격을 따릅니다.
-
-* 200 Success
-* 201 Created
-* 204 No Content
-* 304 Not Modified
-* 400 Bad Request
-* 401 Unauthorized
-* 403 Forbidden
-* 404 Not Found
-* 500 Internal Server Error
-* 502 Bad Gateway
-* 503 Service Unavailable
 
 ## API 목록
 
