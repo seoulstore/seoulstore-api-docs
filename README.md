@@ -75,25 +75,25 @@ Accept-Charset: utf-8
 
 _input_
 
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-|supplyPrice|Integer|o|공급가격|
-|salePrice|Integer|o|판매가격|
-|channelId|Integer|o|판매채널 아이디|
-|attributes|Object|o|상품의 속성|
-|attributes.name|String|o|상품의 이름|
-|attributes.userCode1|String| | 상품의 코드 1|
-|attributes.userCode2|String| | 상품의 코드 2|
-|attributes.weight|Integer| |상품 무게|
-|attributes.volumeX|Integer| |부피 - x|
-|attributes.volumeY|Integer| |부피 - y|
-|attributes.volumeH|Integer| |부피 - h|
-|description|String| |상품 상세설명|
-| tags | String | | 상품 검색 태그, ^로 구분합니다.|
-| categories | Array | | 상품 카테고리 |
-| images | Object | | 상품 이미지 |
-| images.list | Array | | 상품 목록이미지 url|
-| images.add | Array | | 상품 추가이미지 url|
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| supplyPrice          | Integer | `true`   | 공급가격      |
+| salePrice            | Integer | `true`   | 판매가격      |
+| channelId            | Integer | `true`   | 판매채널 아이디 |
+| attributes           | Object  | `true`   | 상품의 속성    |
+| attributes.name      | String  | `true`   | 상품의 이름    |
+| attributes.userCode1 | String  |          | 상품의 코드 1 |
+| attributes.userCode2 | String  |          | 상품의 코드 2 |
+| attributes.weight    | Integer |          | 상품 무게    |
+| attributes.volumeX   | Integer |          | 부피 - x    |
+| attributes.volumeY   | Integer |          | 부피 - y    |
+| attributes.volumeH   | Integer |          | 부피 - h    |
+| description          | String  |          | 상품 상세설명 |
+| tags                 | String  |          | 상품 검색 태그, ^로 구분합니다. |
+| categories           | Array   |          | 상품 카테고리 |
+| images               | Object  |          | 상품 이미지 |
+| images.list          | Array   |          | 상품 목록이미지 url|
+| images.add           | Array   |          | 상품 추가이미지 url|
 
 _output_
 
