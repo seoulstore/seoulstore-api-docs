@@ -44,7 +44,6 @@ Accept-Charset: utf-8
     "name": "my first product"
   }
 }
-
 ```
 
 ### Response
@@ -139,6 +138,191 @@ _output_
     "editDatetime": "2019-05-29T15:35:54.805Z",
     "regDatetime": "2019-05-29T15:35:54.805Z"
   }
+}
+```
+
+#### 상품 목록 조회
+
+**GET /products**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
+| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "items": [ Product… ],
+    "start": 0,
+    "count": 10,
+    "total": 1
+  }
+}
+```
+
+#### 단일 상품 조회
+
+**GET /products/:siteProductId**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": { Product }
+}
+```
+
+#### 상품 수정
+
+**PATCH /products/:siteProductId**
+
+PATCH로 동작하기 때문에 업데이트가 필요한 필드만 넘겨주시면 됩니다. 
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| supplyPrice          | Integer |          | 공급가격      |
+| salePrice            | Integer |          | 판매가격      |
+| channelId            | Integer |          | 판매채널 아이디 |
+| attributes           | Object  |          | 상품의 속성    |
+| attributes.name      | String  |          | 상품의 이름    |
+| attributes.userCode1 | String  |          | 상품의 코드 1 |
+| attributes.userCode2 | String  |          | 상품의 코드 2 |
+| attributes.weight    | Integer |          | 상품 무게    |
+| attributes.volumeX   | Integer |          | 부피 - x    |
+| attributes.volumeY   | Integer |          | 부피 - y    |
+| attributes.volumeH   | Integer |          | 부피 - h    |
+| description          | String  |          | 상품 상세설명 |
+| tags                 | String  |          | 상품 검색 태그, ^로 구분합니다. |
+| categories           | Array   |          | 상품 카테고리 |
+| images               | Object  |          | 상품 이미지 |
+| images.list          | Array   |          | 상품 목록이미지 url|
+| images.add           | Array   |          | 상품 추가이미지 url|
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": { Product }
+}
+```
+
+#### 상품삭제
+
+**DELETE /products/:siteProductId (TBD)** 
+
+### 상품 옵션
+
+#### 상품 옵션 등록
+**POST /products/:siteProductId/items (WIP)**
+
+#### 상품 옵션 목록 조회
+**GET /products/:siteProductId/items**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "items": [
+      Option...
+    ],
+    "count": 22
+  }
+}
+```
+
+#### 상품 단일 옵션 조회
+
+**GET /products/:siteProductId/items/:productItemId**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "option": "COLOR",
+    "value": "BEIGE(쮸리)",
+    "itemId": "1113792",
+    "isManageStock": 1,
+    "quantity": 20,
+    "orderQuantity": 0,
+    "price": -12500
+  }
+}
+```
+
+#### 상품 재고 수정
+
+**PATCH /products/:siteProductId/items/:productItemId/stock**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| type                 | String  | `true`   | 추가인 경우 `IN`, 차감인경우 `OUT` 을 넘겨주세요. |
+| status               | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
+| quantity             | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다. |
+
+### 기타
+
+#### 사용자 정보
+
+**GET /users/me**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "adminId": 1309,
+    "supplierUserId": 2332,
+    "supplierId": 1201,
+    "supplierUserType": "M",
+    "supplierUserLoginId": "admin",
+    "supplierUserName": "관리자",
+    "supplierUserPhone": "010-6444-5743",
+    "supplierUserEmail": "dasol_jung@fila.com",
+    "isUse": 1,
+    "isSystemManager": 3,
+    "regDatetime": "2019-03-19T08:42:49.000Z",
+    "editDatetime": "2019-03-19T08:42:49.000Z",
+    "useSmsCertification": "T"
+  }
+}
+```
+
+#### 입점사의 채널 목록
+
+**GET /suppliers/:supplierId/channels**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
+| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+
+_output_
+
+```
+{
+ "status": "success",
+ "data": {
+
+ }
 }
 ```
 
