@@ -303,25 +303,3 @@ _output_
 }
 ```
 
-#### 입점사의 채널 목록
-
-**GET /suppliers/:supplierId/channels**
-
-_input_
-
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
-| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
-
-_output_
-
-```
-{
- "status": "success",
- "data": {
-
- }
-}
-```
-
