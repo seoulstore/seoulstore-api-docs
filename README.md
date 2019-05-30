@@ -288,6 +288,36 @@ _output_
 }
 ```
 
+#### 입점사 채널 목록
+
+**GET /suppliers/:supplierId/channels**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
+| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "items": [
+      {
+        "channelId": 1881,
+        "channelCode": "filakorea"
+      }
+    ],
+    "start": 0,
+    "count": 10,
+    "total": 1
+  }
+}
+```
+
 ### 문의사항
 
 API와 관련된 문의사항이 있는 경우 [이슈](https://github.com/seoulstore/seoulstore-api-docs/issues)를 생성해주시거나 dev@seoulstore.com 으로 메일 부탁드립니다.
