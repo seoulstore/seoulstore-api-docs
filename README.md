@@ -5,11 +5,12 @@
 **Contents**
 * [기본사항](#기본사항)
 * [API 목록](#API-목록)
+  * [사용자](#사용자)
+  * [입점사](#입점사)
   * [상품](#상품)
   * [상품 옵션 (wip)](#상품-옵션)
   * [주문 (wip)](#주문)
   * [교환/반품 (wip)](#교환/반품)
-  * [기타](#기타)
 * [문의사항](#문의사항)
 * [부록](appendix.md)
 
@@ -50,7 +51,123 @@ Accept-Charset: utf-8
 
 다음은 호출 가능한 API 목록입니다. 
 
+### 사용자
+
+#### 사용자 정보
+
+**GET /users/me**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "adminId": 1309,
+    "supplierUserId": 2332,
+    "supplierId": 1201,
+    "supplierUserType": "M",
+    "supplierUserLoginId": "admin",
+    "supplierUserName": "관리자",
+    "supplierUserPhone": "***-***-****",
+    "supplierUserEmail": "abc@abc.com",
+    "isUse": 1,
+    "isSystemManager": 3,
+    "regDatetime": "2019-03-19T08:42:49.000Z",
+    "editDatetime": "2019-03-19T08:42:49.000Z",
+    "useSmsCertification": "T"
+  }
+}
+```
+
+### 입점사
+
+#### 입점사 채널 목록
+
+**GET /suppliers/:supplierId/channels**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
+| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "items": [{
+      "channelId": 1881,
+      "channelCode": "filakorea",
+      "channelDescription": [{
+        "key": "channel_name_eng",
+        "value": "FILA"
+      }, {
+        "key": "instagram_account",
+        "value": "fila_korea"
+      }, {
+        "key": "facebook_account",
+        "value": ""
+      }, {
+        "key": "ignore_article_period",
+        "value": "0"
+      }, {
+        "key": "channel_name",
+        "value": "휠라"
+      }, {
+        "key": "channel_contents",
+        "value": "FILA KOREA는 1911 이탈리아에서 탄생산 스포츠 브랜드로,<br />100년 이상의 휠라 고유의 헤리티지를 컨템포러리 감성과 스포츠 스트리트 감성을<br />조화롭게 믹스하여 휠라만의 스포츠 스트리트 웨어를 제안한다."
+      }, {
+        "key": "channel_contents_2",
+        "value": ""
+      }, {
+        "key": "channel_banner",
+        "value": ""
+      }, {
+        "key": "channel_notice",
+        "value": ""
+      }]
+    }],
+    "start": 0,
+    "count": 10,
+    "total": 1
+  }
+}
+```
+
+#### 입점사 채널 정보
+
+**GET /suppliers/:supplierId/channels/:channelId**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": { Channel }
+}
+```
+
 ### 상품
+
+### 상품 카테고리
+
+**GET /categories**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "items": [ Categories ... ],
+    "count": 365
+  }
+}
+```
 
 #### 상품 등록
 
@@ -258,65 +375,6 @@ _input_
 | type                 | String  | `true`   | 추가인 경우 `IN`, 차감인경우 `OUT` 을 넘겨주세요. |
 | status               | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
 | quantity             | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다. |
-
-### 기타
-
-#### 사용자 정보
-
-**GET /users/me**
-
-_output_
-
-```
-{
-  "status": "success",
-  "data": {
-    "adminId": 1309,
-    "supplierUserId": 2332,
-    "supplierId": 1201,
-    "supplierUserType": "M",
-    "supplierUserLoginId": "admin",
-    "supplierUserName": "관리자",
-    "supplierUserPhone": "010-6444-5743",
-    "supplierUserEmail": "dasol_jung@fila.com",
-    "isUse": 1,
-    "isSystemManager": 3,
-    "regDatetime": "2019-03-19T08:42:49.000Z",
-    "editDatetime": "2019-03-19T08:42:49.000Z",
-    "useSmsCertification": "T"
-  }
-}
-```
-
-#### 입점사 채널 목록
-
-**GET /suppliers/:supplierId/channels**
-
-_input_
-
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
-| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
-
-_output_
-
-```
-{
-  "status": "success",
-  "data": {
-    "items": [
-      {
-        "channelId": 1881,
-        "channelCode": "filakorea"
-      }
-    ],
-    "start": 0,
-    "count": 10,
-    "total": 1
-  }
-}
-```
 
 ### 문의사항
 
