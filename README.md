@@ -73,6 +73,70 @@ Accept-Charset: utf-8
 
 **POST /products**
 
+_input_
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 |supplyPrice|Integer|o|공급가격|
+|salePrice|Integer|o|판매가격|
+|channelId|Integer|o|판매채널 아이디|
+|attributes|Object|o|상품의 속성|
+|attributes.name|String|o|상품의 이름|
+|attributes.userCode1|String| | 상품의 코드 1|
+|attributes.userCode2|String| | 상품의 코드 2|
+|attributes.weight|Integer| |상품 무게|
+|attributes.volumeX|Integer| |부피 - x|
+|attributes.volumeY|Integer| |부피 - y|
+|attributes.volumeH|Integer| |부피 - h|
+|description|String| |상품 상세설명|
+| tags | String | | 상품 검색 태그, ^로 구분합니다.|
+| categories | Array | | 상품 카테고리 |
+| images | Object | | 상품 이미지 |
+| images.list | Array | | 상품 목록이미지 url|
+| images.add | Array | | 상품 추가이미지 url|
+
+_output_
+```
+{
+  "status": "success",
+  "data": {
+    "siteId": 1,
+    "siteProductSetGroupId": 0,
+    "siteProductSpecGroupId": 0,
+    "siteBrandId": 0,
+    "isDeleted": 0,
+    "isSale": 0,
+    "isDisplay": 0,
+    "isUsed": 0,
+    "isShippingFree": 0,
+    "shippingGroupId": 0,
+    "consumerPrice": 0,
+    "discountRate": 0,
+    "discountBeginDatetime": "0000-00-00 00:00:00",
+    "discountEndDatetime": "0000-00-00 00:00:00",
+    "discountPrice": 0,
+    "siteCommissionId": 0,
+    "siteTaxId": 0,
+    "isIgnorePromotion": 0,
+    "ratingAverage": 0,
+    "parentChannelId": 0,
+    "parentSiteProductId": 0,
+    "orderCountSp": 0,
+    "displayCms": 0,
+    "isLock": 0,
+    "isIgnoreParentContents": 0,
+    "confirmStatus": 0,
+    "sortDatetime": "2019-05-29T15:35:54.805Z",
+    "siteProductId": 1063212,
+    "supplierId": 1201,
+    "channelId": 1881,
+    "salePrice": 20000,
+    "maximum": 0,
+    "minimum": 0,
+    "supplyPrice": 10000,
+    "productId": 1054534,
+    "editDatetime": "2019-05-29T15:35:54.805Z",
+    "regDatetime": "2019-05-29T15:35:54.805Z"
+  }
+}
+```
+
