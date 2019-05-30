@@ -74,6 +74,7 @@ Accept-Charset: utf-8
 **POST /products**
 
 _input_
+
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 |supplyPrice|Integer|o|공급가격|
@@ -95,6 +96,7 @@ _input_
 | images.add | Array | | 상품 추가이미지 url|
 
 _output_
+
 ```
 {
   "status": "success",
