@@ -3,8 +3,8 @@
 이 저장소는 [서울스토어](https://www.seoulstore.com)의 API 문서를 담고 있습니다.
 
 **Contents**
-* 기본사항
-* API 목록
+* [기본사항](#기본사항)
+* [API 목록](#API 목록)
   * 상품
   * 상품 옵션
   * 주문
