@@ -26,7 +26,7 @@
 * Host: https://sanggye-stage.seoulstore.com 
 * Request Header: Authorization: Bearer _access_token_
 
-Example Request
+_Example Request_
 
 ```
 POST /products HTTP/1.1
