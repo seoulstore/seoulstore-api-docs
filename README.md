@@ -290,4 +290,4 @@ _output_
 
 ### 문의사항
 
-API와 관련된 문의사항이 있는 경우 [이슈](https://github.com/seoulstore/seoulstore-api-docs/issues)를 생성해주시거나 jclee@seoulstore.com 으로 메일 부탁드립니다.
+API와 관련된 문의사항이 있는 경우 [이슈](https://github.com/seoulstore/seoulstore-api-docs/issues)를 생성해주시거나 dev@seoulstore.com 으로 메일 부탁드립니다.
