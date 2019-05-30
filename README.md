@@ -10,13 +10,14 @@
   * [주문](#주문)
   * [교환/반품](#교환/반품)
   * [기타](#기타)
-* [부록](appendix.md)
+* 부록
+  * 상품구조
 
 ## 기본사항
 
 **Note**
 
-현재 서울스토어의 API는 화이트리스트에 등록된 클라이언트만 사용이 가능합니다. 화이트리스트에 등록되면 _self-issued access token_ 을 발급해드리며 이것을 이용하여 서울스토어의 API를 호출할 수 있습니다.
+현재 서울스토어의 API는 화이트리스트에 등록된 클라이언트만 사용이 가능합니다. 화이트리스트에 등록되면 self-issued access token을 발급해드리며 이것을 이용하여 서울스토어의 API를 호출할 수 있습니다.
 
 ### Request
 
@@ -30,7 +31,7 @@ _Example Request_
 ```
 POST /products HTTP/1.1
 Host: sanggy-stage.seoulstore.com
-Authorization: Bearer <access_token>
+Authorization: Bearer <Token>
 Content-Type: application/json
 Accept: application/json
 Accept-Charset: utf-8
@@ -215,6 +216,65 @@ _output_
 }
 ```
 
+#### 상품삭제
+
+**DELETE /products/:siteProductId (TBD)** 
+
+### 상품 옵션
+
+#### 상품 옵션 등록
+**POST /products/:siteProductId/items (WIP)**
+
+#### 상품 옵션 목록 조회
+**GET /products/:siteProductId/items**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "items": [
+      Option...
+    ],
+    "count": 22
+  }
+}
+```
+
+#### 상품 단일 옵션 조회
+
+**GET /products/:siteProductId/items/:productItemId**
+
+_output_
+
+```
+{
+  "status": "success",
+  "data": {
+    "option": "COLOR",
+    "value": "BEIGE(쮸리)",
+    "itemId": "1113792",
+    "isManageStock": 1,
+    "quantity": 20,
+    "orderQuantity": 0,
+    "price": -12500
+  }
+}
+```
+
+#### 상품 재고 수정
+
+**PATCH /products/:siteProductId/items/:productItemId/stock**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| type                 | String  | `true`   | 추가인 경우 `IN`, 차감인경우 `OUT` 을 넘겨주세요. |
+| status               | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
+| quantity             | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다. |
+
 ### 기타
 
 #### 사용자 정보
@@ -241,6 +301,28 @@ _output_
     "editDatetime": "2019-03-19T08:42:49.000Z",
     "useSmsCertification": "T"
   }
+}
+```
+
+#### 입점사의 채널 목록
+
+**GET /suppliers/:supplierId/channels**
+
+_input_
+
+| Parameter            | Type    | Required | Description |
+|----------------------|---------|----------|-------------|
+| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
+| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+
+_output_
+
+```
+{
+ "status": "success",
+ "data": {
+
+ }
 }
 ```
 
