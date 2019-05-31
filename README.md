@@ -3,16 +3,17 @@
 이 저장소는 [서울스토어](https://www.seoulstore.com)의 공개 API 문서를 담고 있습니다.
 
 **Contents**
-* [기본사항](#기본사항)
-* [API 목록](#API-목록)
-  * [사용자](#사용자)
-  * [입점사](#입점사)
-  * [상품](#상품)
-  * [상품 옵션 (wip)](#상품-옵션)
-  * [주문 (wip)](#주문)
-  * [교환/반품 (wip)](#교환/반품)
-* [문의사항](#문의사항)
-* [부록](appendix.md)
+
+- [기본사항](#기본사항)
+- [API 목록](#API-목록)
+  - [사용자](#사용자)
+  - [입점사](#입점사)
+  - [상품](#상품)
+  - [상품 옵션 (wip)](#상품-옵션)
+  - [주문 (wip)](#주문)
+  - [교환/반품 (wip)](#교환/반품)
+- [문의사항](#문의사항)
+- [부록](appendix.md)
 
 ## 기본사항
 
@@ -24,8 +25,8 @@
 
 모든 요청은 Authorization 헤더를 가져야 하며 Bearer 타입의 인증이 필요합니다. 발급받은 _access token_ 을 이용해주세요.
 
-* Host: https://sanggye-stage.seoulstore.com 
-* Request Header: Authorization: Bearer _access_token_
+- Host: https://sanggye-stage.seoulstore.com
+- Request Header: Authorization: Bearer _access_token_
 
 _Example Request_
 
@@ -49,7 +50,7 @@ Accept-Charset: utf-8
 
 ## API 목록
 
-다음은 호출 가능한 API 목록입니다. 
+다음은 호출 가능한 API 목록입니다.
 
 ### 사용자
 
@@ -88,10 +89,10 @@ _output_
 
 _input_
 
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
-| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+| Parameter | Type    | Required | Description                                 |
+| --------- | ------- | -------- | ------------------------------------------- |
+| start     | Integer |          | 리스트의 offset 입니다. `default: 0`        |
+| count     | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10` |
 
 _output_
 
@@ -175,25 +176,25 @@ _output_
 
 _input_
 
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| supplyPrice          | Integer | `true`   | 공급가격      |
-| salePrice            | Integer | `true`   | 판매가격      |
-| channelId            | Integer | `true`   | 판매채널 아이디 |
-| attributes           | Object  | `true`   | 상품의 속성    |
-| attributes.name      | String  | `true`   | 상품의 이름    |
-| attributes.userCode1 | String  |          | 상품의 코드 1 |
-| attributes.userCode2 | String  |          | 상품의 코드 2 |
-| attributes.weight    | Integer |          | 상품 무게    |
-| attributes.volumeX   | Integer |          | 부피 - x    |
-| attributes.volumeY   | Integer |          | 부피 - y    |
-| attributes.volumeH   | Integer |          | 부피 - h    |
-| description          | String  |          | 상품 상세설명 |
+| Parameter            | Type    | Required | Description                     |
+| -------------------- | ------- | -------- | ------------------------------- |
+| supplyPrice          | Integer | `true`   | 공급가격                        |
+| salePrice            | Integer | `true`   | 판매가격                        |
+| channelId            | Integer | `true`   | 판매채널 아이디                 |
+| attributes           | Object  | `true`   | 상품의 속성                     |
+| attributes.name      | String  | `true`   | 상품의 이름                     |
+| attributes.userCode1 | String  |          | 상품의 코드 1                   |
+| attributes.userCode2 | String  |          | 상품의 코드 2                   |
+| attributes.weight    | Integer |          | 상품 무게                       |
+| attributes.volumeX   | Integer |          | 부피 - x                        |
+| attributes.volumeY   | Integer |          | 부피 - y                        |
+| attributes.volumeH   | Integer |          | 부피 - h                        |
+| description          | String  |          | 상품 상세설명                   |
 | tags                 | String  |          | 상품 검색 태그, ^로 구분합니다. |
-| categories           | Array   |          | 상품 카테고리 |
-| images               | Object  |          | 상품 이미지 |
-| images.list          | Array   |          | 상품 목록이미지 url|
-| images.add           | Array   |          | 상품 추가이미지 url|
+| categories           | Array   |          | 상품 카테고리                   |
+| images               | Object  |          | 상품 이미지                     |
+| images.list          | Array   |          | 상품 목록이미지 url             |
+| images.add           | Array   |          | 상품 추가이미지 url             |
 
 _output_
 
@@ -237,7 +238,11 @@ _output_
     "supplyPrice": 10000,
     "productId": 1054534,
     "editDatetime": "2019-05-29T15:35:54.805Z",
-    "regDatetime": "2019-05-29T15:35:54.805Z"
+    "regDatetime": "2019-05-29T15:35:54.805Z",
+    "options": [],
+    "images": [],
+    "tags": [],
+    "attributes": [],
   }
 }
 ```
@@ -248,10 +253,10 @@ _output_
 
 _input_
 
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| start                | Integer |          | 리스트의 offset 입니다. `default: 0` |
-| count                | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`|
+| Parameter | Type    | Required | Description                                 |
+| --------- | ------- | -------- | ------------------------------------------- |
+| start     | Integer |          | 리스트의 offset 입니다. `default: 0`        |
+| count     | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10` |
 
 _output_
 
@@ -284,29 +289,29 @@ _output_
 
 **PATCH /products/:siteProductId**
 
-PATCH로 동작하기 때문에 업데이트가 필요한 필드만 넘겨주시면 됩니다. 
+PATCH로 동작하기 때문에 업데이트가 필요한 필드만 넘겨주시면 됩니다.
 
 _input_
 
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| supplyPrice          | Integer |          | 공급가격      |
-| salePrice            | Integer |          | 판매가격      |
-| channelId            | Integer |          | 판매채널 아이디 |
-| attributes           | Object  |          | 상품의 속성    |
-| attributes.name      | String  |          | 상품의 이름    |
-| attributes.userCode1 | String  |          | 상품의 코드 1 |
-| attributes.userCode2 | String  |          | 상품의 코드 2 |
-| attributes.weight    | Integer |          | 상품 무게    |
-| attributes.volumeX   | Integer |          | 부피 - x    |
-| attributes.volumeY   | Integer |          | 부피 - y    |
-| attributes.volumeH   | Integer |          | 부피 - h    |
-| description          | String  |          | 상품 상세설명 |
+| Parameter            | Type    | Required | Description                     |
+| -------------------- | ------- | -------- | ------------------------------- |
+| supplyPrice          | Integer |          | 공급가격                        |
+| salePrice            | Integer |          | 판매가격                        |
+| channelId            | Integer |          | 판매채널 아이디                 |
+| attributes           | Object  |          | 상품의 속성                     |
+| attributes.name      | String  |          | 상품의 이름                     |
+| attributes.userCode1 | String  |          | 상품의 코드 1                   |
+| attributes.userCode2 | String  |          | 상품의 코드 2                   |
+| attributes.weight    | Integer |          | 상품 무게                       |
+| attributes.volumeX   | Integer |          | 부피 - x                        |
+| attributes.volumeY   | Integer |          | 부피 - y                        |
+| attributes.volumeH   | Integer |          | 부피 - h                        |
+| description          | String  |          | 상품 상세설명                   |
 | tags                 | String  |          | 상품 검색 태그, ^로 구분합니다. |
-| categories           | Array   |          | 상품 카테고리 |
-| images               | Object  |          | 상품 이미지 |
-| images.list          | Array   |          | 상품 목록이미지 url|
-| images.add           | Array   |          | 상품 추가이미지 url|
+| categories           | Array   |          | 상품 카테고리                   |
+| images               | Object  |          | 상품 이미지                     |
+| images.list          | Array   |          | 상품 목록이미지 url             |
+| images.add           | Array   |          | 상품 추가이미지 url             |
 
 _output_
 
@@ -319,14 +324,53 @@ _output_
 
 #### 상품삭제
 
-**DELETE /products/:siteProductId (TBD)** 
+**DELETE /products/:siteProductId (TBD)**
 
 ### 상품 옵션
 
 #### 상품 옵션 등록
-**POST /products/:siteProductId/items (WIP)**
+
+**POST /products/:siteProductId/items**
+
+_input_
+
+| Parameter    | Type    | Required | Description                                                        |
+| ------------ | ------- | -------- | ------------------------------------------------------------------ |
+| name         | String  | `true`   | 상품 옵션명                                                        |
+| values       | Array   | `true`   | 상품 옵션 정보                                                     |
+| values.name  | String  | `true`   | 상품 옵션 값 이륾                                                  |
+| values.price | Integer |          | 옵션 선택시 추가금액                                               |
+| values.stock | Integer |          | 옵션 초기 수량, 없거나 0일 경우 재고관리 안함 옵션으로 처리됩니다. |
+
+```json
+[
+  {
+    "name": "optionName",
+    "values": [
+      { "name": "abc", "price": 2000 },
+      { "name": "def", "stock": 100, "price": -2000 }
+    ]
+  },
+  {
+    "name": "optionName2",
+    "values": [{ "name": "abc2" }, { "name": "def", "stock": 0 }]
+  }
+]
+```
+
+_output_
+
+```
+{
+      "status": "success",
+      "data": [
+        Option...,
+      ]
+    }
+```
 
 #### 상품 옵션 목록
+
 **GET /products/:siteProductId/items**
 
 _output_
@@ -370,11 +414,11 @@ _output_
 
 _input_
 
-| Parameter            | Type    | Required | Description |
-|----------------------|---------|----------|-------------|
-| type                 | String  | `true`   | 추가인 경우 `IN`, 차감인경우 `OUT` 을 넘겨주세요. |
-| status               | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
-| quantity             | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다. |
+| Parameter | Type    | Required | Description                                                             |
+| --------- | ------- | -------- | ----------------------------------------------------------------------- |
+| type      | String  | `true`   | 추가인 경우 `IN`, 차감인경우 `OUT` 을 넘겨주세요.                       |
+| status    | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
+| quantity  | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다.       |
 
 ### 문의사항
 

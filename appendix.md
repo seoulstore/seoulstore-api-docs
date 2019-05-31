@@ -35,7 +35,12 @@
 | options.isManageStock | 재고 사용여부, 0: 사용안함 / 1: 사용 |
 | options.quantity      | 수량 |
 | options.orderQuantity | 주문수량 |
-| options.price | 옵션 추가금액 |
+| options.price         | 옵션 추가금액 |
+| images                | 상품 이미지 Object |
+| images.list           | 상품 목록 이미지 url Array |
+| images.add            | 상품 추가 이미지 url Array |
+| tags                  | 상품 검색 태그 Array |
+
 
 **상품 응답 데이터 예제**
 
@@ -66,7 +71,7 @@
   "confirmStatus": 2,
   "sortDatetime": "2015-12-10T07:22:01.000Z",
   "attributes": {"name": "BETTER ORIGINAL FOOD (가자미베지믹스)"},
-  "description": ""
+  "description": "",
   "options": [
       {
         "option": "OPTION",
@@ -77,6 +82,11 @@
         "orderQuantity": 0,
         "price": 5000,
       }
-    ]
+  ],
+ "images": {
+      "add": ["https://images"]
+      "list": ["https://images"]    
+ },
+ "tags" ["태그","태그2"]
 }
 ```
