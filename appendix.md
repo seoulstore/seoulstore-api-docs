@@ -4,47 +4,47 @@
 
 서울스토어 API 응답중 상품에 나타나는 필드는 다음을 의미합니다.
 
-| Parameter             | Description |
-|-----------------------|---------|
+| Parameter             | Description                                                                                                                                   |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | siteProduct           | 사이트에 등록되는 상품의 id 입니다. 웹사이트에서 이 아이디로 상품을 조회할 수 있습니다. eg. `https://www.seoulstore.com/products/9314/detail` |
-| supplierId            | 상품을 등록한 입점사의 id 입니다. |
-| isSale                | 상품이 사이트에서 판매중인지를 보여줍니다. 판매중은 `1`로 표시되고, 판매가 중지된 상품은 `0`으로 표시됩니다. |
-| IsDisplay             | 진열여부를 보여줍니다. `1`은 사이트에 보여지고 있을때 나타나는 값이고 `0`은 진열중이지 않을 때 나타납니다.   |
-| minimum.              | 최소 구매수량  |
-| maximum               | 최대 구매수량  |
-| regDatetime           | 상품이 등록된 날짜입니다.  |
-| editDatetime          | 상품이 수정된 날짜입니다.  |
-| deleteDatetime        | 상품이 삭제된 날짜입니다.  |
-| discountRate          | 할인 비율 |
-| discountBeginDatetime | 할인을 시작하는 시간입니다. |
-| discountEndDatetime   | 할인을 종료하는 시간입니다. |
-| discountPrice         | 할인가  |
-| isIgnorePromotion     | 프로모션 무시여부   |
-| channelId             | 상품이 속해있는 채널의 id  |
-| parentChannelId       | 부모 채널 id   |
-| orderCountSp          | 주문 수   |
-| isLock                | 상품 수정 금지여부 |
-| confirmStatus         | 상품 승인여부, 0:요청 / 1:재승인요청 / 2:승인 / 3:승인거절 |
-| sortDatetime          | 상품 진열 정렬 순서 |
-| attributes            | 상품 추가정보 |
-| description           | 상품 상세설명 |
-| options               | 상품 옵션 Array |
-| options.option        | 옵션 이름 ex) 사이즈 |
-| options.value         | 옵션 값 ex) S / M / L |
-| options.productItemId | 옵션 id |
-| options.isManageStock | 재고 사용여부, 0: 사용안함 / 1: 사용 |
-| options.quantity      | 수량 |
-| options.orderQuantity | 주문수량 |
-| options.price         | 옵션 추가금액 |
-| images                | 상품 이미지 Object |
-| images.list           | 상품 목록 이미지 url Array |
-| images.add            | 상품 추가 이미지 url Array |
-| tags                  | 상품 검색 태그 Array |
-
+| supplierId            | 상품을 등록한 입점사의 id 입니다.                                                                                                             |
+| isSale                | 상품이 사이트에서 판매중인지를 보여줍니다. 판매중은 `1`로 표시되고, 판매가 중지된 상품은 `0`으로 표시됩니다.                                  |
+| IsDisplay             | 진열여부를 보여줍니다. `1`은 사이트에 보여지고 있을때 나타나는 값이고 `0`은 진열중이지 않을 때 나타납니다.                                    |
+| minimum.              | 최소 구매수량                                                                                                                                 |
+| maximum               | 최대 구매수량                                                                                                                                 |
+| regDatetime           | 상품이 등록된 날짜입니다.                                                                                                                     |
+| editDatetime          | 상품이 수정된 날짜입니다.                                                                                                                     |
+| deleteDatetime        | 상품이 삭제된 날짜입니다.                                                                                                                     |
+| discountRate          | 할인 비율                                                                                                                                     |
+| discountBeginDatetime | 할인을 시작하는 시간입니다.                                                                                                                   |
+| discountEndDatetime   | 할인을 종료하는 시간입니다.                                                                                                                   |
+| discountPrice         | 할인가                                                                                                                                        |
+| isIgnorePromotion     | 프로모션 무시여부                                                                                                                             |
+| channelId             | 상품이 속해있는 채널의 id                                                                                                                     |
+| parentChannelId       | 부모 채널 id                                                                                                                                  |
+| orderCountSp          | 주문 수                                                                                                                                       |
+| isLock                | 상품 수정 금지여부                                                                                                                            |
+| confirmStatus         | 상품 승인여부, 0:요청 / 1:재승인요청 / 2:승인 / 3:승인거절                                                                                    |
+| sortDatetime          | 상품 진열 정렬 순서                                                                                                                           |
+| attributes            | 상품 추가정보                                                                                                                                 |
+| description           | 상품 상세설명                                                                                                                                 |
+| items                 | 상품 item Array                                                                                                                               |
+| items.options         | 상품 item 옵션 Array                                                                                                                          |
+| items.options.option  | 상품 item 옵션명                                                                                                                              |
+| items.options.value   | 상품 item 옵션값                                                                                                                              |
+| items.productItemId   | item id                                                                                                                                       |
+| items.isManageStock   | 재고 사용여부, 0: 사용안함 / 1: 사용                                                                                                          |
+| items.quantity        | 수량                                                                                                                                          |
+| items.orderQuantity   | 주문수량                                                                                                                                      |
+| items.price           | item 추가금액                                                                                                                                 |
+| images                | 상품 이미지 Object                                                                                                                            |
+| images.list           | 상품 목록 이미지 url Array                                                                                                                    |
+| images.add            | 상품 추가 이미지 url Array                                                                                                                    |
+| tags                  | 상품 검색 태그 Array                                                                                                                          |
 
 **상품 응답 데이터 예제**
 
-```
+```json
 {
   "siteProductId": 9314,
   "supplierId": 220,
@@ -70,23 +70,42 @@
   "isLock": 0,
   "confirmStatus": 2,
   "sortDatetime": "2015-12-10T07:22:01.000Z",
-  "attributes": {"name": "BETTER ORIGINAL FOOD (가자미베지믹스)"},
+  "attributes": { "name": "BETTER ORIGINAL FOOD (가자미베지믹스)" },
   "description": "",
-  "options": [
-      {
-        "option": "OPTION",
-        "value": "선택1",
-        "productItemId": 1234,
-        "isManageStock": 0,
-        "quantity": 0,
-        "orderQuantity": 0,
-        "price": 5000,
-      }
+  "items": [
+    {
+      "productItemId": 4694133,
+      "isManageStock": 0,
+      "price": 0,
+      "point": 0,
+      "productItemUserCode1": "",
+      "productItemUserCode2": "",
+      "productItemCode": "",
+      "barcode": "",
+      "qrcodeImage": "",
+      "regDatetime": "2019-05-31T11:08:59.000Z",
+      "editDatetime": null,
+      "deleteDatetime": null,
+      "externalStockCode": "",
+      "supplyPrice": "0.0000",
+      "orderQuantity": 0,
+      "quantity": 0,
+      "options": [
+        {
+          "option": "색상",
+          "value": "빨강"
+        },
+        {
+          "option": "사이즈",
+          "value": "L"
+        }
+      ]
+    }
   ],
- "images": {
-      "add": ["https://images"]
-      "list": ["https://images"]    
- },
- "tags" ["태그","태그2"]
+  "images": {
+    "add": ["https://images"],
+    "list": ["https://images"]
+  },
+  "tags": ["태그", "태그2"]
 }
 ```

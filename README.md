@@ -30,7 +30,7 @@
 
 _Example Request_
 
-```
+```json
 POST /products HTTP/1.1
 Host: sanggy-stage.seoulstore.com
 Authorization: Bearer <Token>
@@ -60,7 +60,7 @@ Accept-Charset: utf-8
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
@@ -96,42 +96,54 @@ _input_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
-    "items": [{
-      "channelId": 1881,
-      "channelCode": "filakorea",
-      "channelDescription": [{
-        "key": "channel_name_eng",
-        "value": "FILA"
-      }, {
-        "key": "instagram_account",
-        "value": "fila_korea"
-      }, {
-        "key": "facebook_account",
-        "value": ""
-      }, {
-        "key": "ignore_article_period",
-        "value": "0"
-      }, {
-        "key": "channel_name",
-        "value": "휠라"
-      }, {
-        "key": "channel_contents",
-        "value": "FILA KOREA는 1911 이탈리아에서 탄생산 스포츠 브랜드로,<br />100년 이상의 휠라 고유의 헤리티지를 컨템포러리 감성과 스포츠 스트리트 감성을<br />조화롭게 믹스하여 휠라만의 스포츠 스트리트 웨어를 제안한다."
-      }, {
-        "key": "channel_contents_2",
-        "value": ""
-      }, {
-        "key": "channel_banner",
-        "value": ""
-      }, {
-        "key": "channel_notice",
-        "value": ""
-      }]
-    }],
+    "items": [
+      {
+        "channelId": 1881,
+        "channelCode": "filakorea",
+        "channelDescription": [
+          {
+            "key": "channel_name_eng",
+            "value": "FILA"
+          },
+          {
+            "key": "instagram_account",
+            "value": "fila_korea"
+          },
+          {
+            "key": "facebook_account",
+            "value": ""
+          },
+          {
+            "key": "ignore_article_period",
+            "value": "0"
+          },
+          {
+            "key": "channel_name",
+            "value": "휠라"
+          },
+          {
+            "key": "channel_contents",
+            "value": "FILA KOREA는 1911 이탈리아에서 탄생산 스포츠 브랜드로,<br />100년 이상의 휠라 고유의 헤리티지를 컨템포러리 감성과 스포츠 스트리트 감성을<br />조화롭게 믹스하여 휠라만의 스포츠 스트리트 웨어를 제안한다."
+          },
+          {
+            "key": "channel_contents_2",
+            "value": ""
+          },
+          {
+            "key": "channel_banner",
+            "value": ""
+          },
+          {
+            "key": "channel_notice",
+            "value": ""
+          }
+        ]
+      }
+    ],
     "start": 0,
     "count": 10,
     "total": 1
@@ -145,7 +157,7 @@ _output_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": { Channel }
@@ -160,7 +172,7 @@ _output_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
@@ -198,7 +210,7 @@ _input_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
@@ -242,7 +254,7 @@ _output_
     "options": [],
     "images": [],
     "tags": [],
-    "attributes": [],
+    "attributes": []
   }
 }
 ```
@@ -260,7 +272,7 @@ _input_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
@@ -278,7 +290,7 @@ _output_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": { Product }
@@ -315,7 +327,7 @@ _input_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": { Product }
@@ -334,27 +346,16 @@ _output_
 
 _input_
 
-| Parameter    | Type    | Required | Description                                                        |
-| ------------ | ------- | -------- | ------------------------------------------------------------------ |
-| name         | String  | `true`   | 상품 옵션명                                                        |
-| values       | Array   | `true`   | 상품 옵션 정보                                                     |
-| values.name  | String  | `true`   | 상품 옵션 값 이륾                                                  |
-| values.price | Integer |          | 옵션 선택시 추가금액                                               |
-| values.stock | Integer |          | 옵션 초기 수량, 없거나 0일 경우 재고관리 안함 옵션으로 처리됩니다. |
+| Parameter  | Type   | Required | Description       |
+| ---------- | ------ | -------- | ----------------- |
+| optionName | String | `true`   | 상품 옵션명       |
+| values     | Array  | `true`   | 상품 옵션 정보    |
+| values[x]  | String | `true`   | 상품 옵션 값 이륾 |
 
 ```json
 [
-  {
-    "name": "optionName",
-    "values": [
-      { "name": "abc", "price": 2000 },
-      { "name": "def", "stock": 100, "price": -2000 }
-    ]
-  },
-  {
-    "name": "optionName2",
-    "values": [{ "name": "abc2" }, { "name": "def", "stock": 0 }]
-  }
+  { "optionName": "color", "values": ["white", "gold"] },
+  { "optionName": "size", "values": ["S", "M", "L"] }
 ]
 ```
 
@@ -369,20 +370,71 @@ _output_
     }
 ```
 
+#### 상품 옵션 수정
+
+**PATCH /products/:siteProductId/items/:productItemId**
+
+_input_
+
+| Parameter            | Type   | Required | Description |
+| -------------------- | ------ | -------- | ----------- |
+| barcode              | String |          |             |
+| externalStockCode    | String |          |             |
+| isManageStock        | String |          |             |
+| point                | String |          |             |
+| price                | String |          |             |
+| productItemCode      | String |          |             |
+| productItemUserCode1 | String |          |             |
+| productItemUserCode2 | String |          |             |
+| qrcodeImage          | String |          |             |
+| supplyPrice          | String |          |             |
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "productItemId": 1,
+    "isManageStock": 0,
+    "price": -2000,
+    "point": 10000,
+    "productItemUserCode1": "",
+    "productItemUserCode2": "",
+    "productItemCode": "",
+    "barcode": "abcdef",
+    "qrcodeImage": "abcdefghijk",
+    "regDatetime": "2019-06-04T08:47:08.000Z",
+    "editDatetime": "2019-06-04T08:47:08.000Z",
+    "deleteDatetime": null,
+    "externalStockCode": "",
+    "supplyPrice": "0",
+    "orderQuantity": 0,
+    "quantity": 0,
+    "options": [
+      { "option": "size", "value": "S" },
+      { "option": "color", "value": "white" }
+    ]
+  }
+}
+```
+
 #### 상품 옵션 목록
 
 **GET /products/:siteProductId/items**
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
     "items": [
       Option...
     ],
-    "count": 22
+    "total": 4,
+    "start": 0,
+    "count": 10
   }
 }
 ```
@@ -393,17 +445,36 @@ _output_
 
 _output_
 
-```
+```json
 {
   "status": "success",
   "data": {
-    "option": "COLOR",
-    "value": "BEIGE(쮸리)",
-    "itemId": "1113792",
-    "isManageStock": 1,
-    "quantity": 20,
+    "productItemId": 4694133,
+    "isManageStock": 0,
+    "price": 0,
+    "point": 0,
+    "productItemUserCode1": "",
+    "productItemUserCode2": "",
+    "productItemCode": "",
+    "barcode": "",
+    "qrcodeImage": "",
+    "regDatetime": "2019-05-31T11:08:59.000Z",
+    "editDatetime": null,
+    "deleteDatetime": null,
+    "externalStockCode": "",
+    "supplyPrice": "0.0000",
     "orderQuantity": 0,
-    "price": -12500
+    "quantity": 0,
+    "options": [
+      {
+        "option": "색상",
+        "value": "빨강"
+      },
+      {
+        "option": "사이즈",
+        "value": "L"
+      }
+    ]
   }
 }
 ```
