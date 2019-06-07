@@ -527,10 +527,10 @@ _input_
 | status    | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
 | quantity  | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다.       |
 
-## 문의사항
-
 ### 상품 아이템 삭제
 
 **DELETE /products/:siteProductId/items**
+
+## 문의사항
 
 API와 관련된 문의사항이 있는 경우 [이슈](https://github.com/seoulstore/seoulstore-api-docs/issues)를 생성해주시거나 dev@seoulstore.com 으로 메일 부탁드립니다.
