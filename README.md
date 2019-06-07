@@ -431,8 +431,18 @@ _output_
     "orderQuantity": 0,
     "quantity": 0,
     "options": [
-      { "option": "size", "value": "S" },
-      { "option": "color", "value": "white" }
+      {
+        "productOptionId": 1,
+        "productOptionValueId": 1,
+        "option": "size",
+        "value": "S"
+      },
+      {
+        "productOptionId": 2,
+        "productOptionValueId": 2,
+        "option": "color",
+        "value": "white"
+      }
     ]
   }
 }
@@ -486,10 +496,14 @@ _output_
     "quantity": 0,
     "options": [
       {
+        "productOptionId": 1,
+        "productOptionValueId": 1,
         "option": "색상",
         "value": "빨강"
       },
       {
+        "productOptionId": 2,
+        "productOptionValueId": 2,
         "option": "사이즈",
         "value": "L"
       }
