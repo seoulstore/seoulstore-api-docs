@@ -342,7 +342,7 @@ _output_
 
 #### 상품 옵션 등록
 
-**POST /products/:siteProductId/items**
+**POST /products/:siteProductId/options**
 
 _input_
 
@@ -361,16 +361,35 @@ _input_
 
 _output_
 
-```
+```json
 {
-      "status": "success",
-      "data": [
-        Option...,
-      ]
-    }
+  "status": "success",
+  "data": [Option...]
+}
 ```
 
-#### 상품 옵션 수정
+#### 상품 옵션 목록
+
+**GET /products/:siteProductId/options**
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "items": [Option...],
+    "total": 5,
+    "count": 10,
+    "start": 0
+  }
+}
+
+```
+
+## 상품 아이템
+
+#### 상품 아이템 수정
 
 **PATCH /products/:siteProductId/items/:productItemId**
 
@@ -419,7 +438,7 @@ _output_
 }
 ```
 
-#### 상품 옵션 목록
+#### 상품 아이템 목록
 
 **GET /products/:siteProductId/items**
 
@@ -439,7 +458,7 @@ _output_
 }
 ```
 
-#### 상품 단일 옵션 조회
+#### 상품 단일 아이템 조회
 
 **GET /products/:siteProductId/items/:productItemId**
 
@@ -492,5 +511,9 @@ _input_
 | quantity  | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다.       |
 
 ### 문의사항
+
+### 상품 아이템 삭제
+
+**DELETE /products/:siteProductId/items**
 
 API와 관련된 문의사항이 있는 경우 [이슈](https://github.com/seoulstore/seoulstore-api-docs/issues)를 생성해주시거나 dev@seoulstore.com 으로 메일 부탁드립니다.
