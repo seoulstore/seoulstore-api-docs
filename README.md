@@ -9,7 +9,8 @@
   - [사용자](#사용자)
   - [입점사](#입점사)
   - [상품](#상품)
-  - [상품 옵션 (wip)](#상품-옵션)
+  - [상품 옵션](#상품-옵션)
+  - [상품 아이템](#상품-아이템)
   - [주문 (wip)](#주문)
   - [교환/반품 (wip)](#교환/반품)
 - [문의사항](#문의사항)
@@ -52,9 +53,9 @@ Accept-Charset: utf-8
 
 다음은 호출 가능한 API 목록입니다.
 
-### 사용자
+## 사용자
 
-#### 사용자 정보
+### 사용자 정보
 
 **GET /users/me**
 
@@ -81,9 +82,9 @@ _output_
 }
 ```
 
-### 입점사
+## 입점사
 
-#### 입점사 채널 목록
+### 입점사 채널 목록
 
 **GET /suppliers/:supplierId/channels**
 
@@ -151,7 +152,7 @@ _output_
 }
 ```
 
-#### 입점사 채널 정보
+### 입점사 채널 정보
 
 **GET /suppliers/:supplierId/channels/:channelId**
 
@@ -164,9 +165,9 @@ _output_
 }
 ```
 
-### 상품
+## 상품
 
-#### 상품 카테고리
+### 상품 카테고리
 
 **GET /categories**
 
@@ -182,7 +183,7 @@ _output_
 }
 ```
 
-#### 상품 등록
+### 상품 등록
 
 **POST /products**
 
@@ -259,7 +260,7 @@ _output_
 }
 ```
 
-#### 상품 목록
+### 상품 목록
 
 **GET /products**
 
@@ -284,7 +285,7 @@ _output_
 }
 ```
 
-#### 상품 조회
+### 상품 조회
 
 **GET /products/:siteProductId**
 
@@ -297,7 +298,7 @@ _output_
 }
 ```
 
-#### 상품 수정
+### 상품 수정
 
 **PATCH /products/:siteProductId**
 
@@ -334,13 +335,13 @@ _output_
 }
 ```
 
-#### 상품삭제
+### 상품삭제
 
 **DELETE /products/:siteProductId (TBD)**
 
-### 상품 옵션
+## 상품 옵션
 
-#### 상품 옵션 등록
+### 상품 옵션 등록
 
 **POST /products/:siteProductId/options**
 
@@ -364,11 +365,13 @@ _output_
 ```json
 {
   "status": "success",
-  "data": [Option...]
+  "data": {
+    "items": [Option...]
+  }
 }
 ```
 
-#### 상품 옵션 목록
+### 상품 옵션 목록
 
 **GET /products/:siteProductId/options**
 
@@ -389,7 +392,71 @@ _output_
 
 ## 상품 아이템
 
-#### 상품 아이템 수정
+### 상품 아이템 목록
+
+**GET /products/:siteProductId/items**
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "items": [
+      Option...
+    ],
+    "total": 4,
+    "start": 0,
+    "count": 10
+  }
+}
+```
+
+### 상품 단일 아이템 조회
+
+**GET /products/:siteProductId/items/:productItemId**
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "productItemId": 4694133,
+    "isManageStock": 0,
+    "price": 0,
+    "point": 0,
+    "productItemUserCode1": "",
+    "productItemUserCode2": "",
+    "productItemCode": "",
+    "barcode": "",
+    "qrcodeImage": "",
+    "regDatetime": "2019-05-31T11:08:59.000Z",
+    "editDatetime": null,
+    "deleteDatetime": null,
+    "externalStockCode": "",
+    "supplyPrice": "0.0000",
+    "orderQuantity": 0,
+    "quantity": 0,
+    "options": [
+      {
+        "productOptionId": 1,
+        "productOptionValueId": 1,
+        "option": "색상",
+        "value": "빨강"
+      },
+      {
+        "productOptionId": 2,
+        "productOptionValueId": 2,
+        "option": "사이즈",
+        "value": "L"
+      }
+    ]
+  }
+}
+```
+
+### 상품 아이템 수정
 
 **PATCH /products/:siteProductId/items/:productItemId**
 
@@ -448,71 +515,7 @@ _output_
 }
 ```
 
-#### 상품 아이템 목록
-
-**GET /products/:siteProductId/items**
-
-_output_
-
-```json
-{
-  "status": "success",
-  "data": {
-    "items": [
-      Option...
-    ],
-    "total": 4,
-    "start": 0,
-    "count": 10
-  }
-}
-```
-
-#### 상품 단일 아이템 조회
-
-**GET /products/:siteProductId/items/:productItemId**
-
-_output_
-
-```json
-{
-  "status": "success",
-  "data": {
-    "productItemId": 4694133,
-    "isManageStock": 0,
-    "price": 0,
-    "point": 0,
-    "productItemUserCode1": "",
-    "productItemUserCode2": "",
-    "productItemCode": "",
-    "barcode": "",
-    "qrcodeImage": "",
-    "regDatetime": "2019-05-31T11:08:59.000Z",
-    "editDatetime": null,
-    "deleteDatetime": null,
-    "externalStockCode": "",
-    "supplyPrice": "0.0000",
-    "orderQuantity": 0,
-    "quantity": 0,
-    "options": [
-      {
-        "productOptionId": 1,
-        "productOptionValueId": 1,
-        "option": "색상",
-        "value": "빨강"
-      },
-      {
-        "productOptionId": 2,
-        "productOptionValueId": 2,
-        "option": "사이즈",
-        "value": "L"
-      }
-    ]
-  }
-}
-```
-
-#### 상품 재고 수정
+### 상품 재고 수정
 
 **PATCH /products/:siteProductId/items/:productItemId/stock**
 
@@ -524,7 +527,7 @@ _input_
 | status    | String  | `true`   | ADD / BROKEN / CANCEL / EDIT / EXCHANGE / LOSE / ORDER / RESTORE / SALE |
 | quantity  | Integer | `true`   | 변경 수량입니다. type에 따라서 현재 재고에 추가하거나 차감합니다.       |
 
-### 문의사항
+## 문의사항
 
 ### 상품 아이템 삭제
 
