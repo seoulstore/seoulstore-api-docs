@@ -381,10 +381,7 @@ _output_
 {
   "status": "success",
   "data": {
-    "items": [Option...],
-    "total": 5,
-    "count": 10,
-    "start": 0
+    "items": [Option...]
   }
 }
 
