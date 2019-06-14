@@ -528,6 +528,127 @@ _input_
 
 **DELETE /products/:siteProductId/items**
 
+## 주문
+
+### 주문 상품 목록
+
+**GET /supplier/:supplierId/order-products**
+
+_input_
+
+| Parameter | Type    | Required | Description                                 |
+| --------- | ------- | -------- | ------------------------------------------- |
+| start     | Integer |          | 리스트의 offset 입니다. `default: 0`        |
+| count     | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10` |
+| stateCode     | String |          | 주문 상태 값입니다. payment_complete (결제 완료) / product_request(상품 요청) / shipping(배송 중) / shipping_complete(배송 완료) / cancel(취소). `default: ALL` |
+| channelId     | Integer |          | 판매채널 아이디입니다. `default: ALL` |
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "count": 1,
+    "rows": [
+      {
+        "orderId": 1342028,
+        "orderProductId": 1790661,
+        "productId": 1049156,
+        "productItemId": 4683169,
+        "stateCode": "PAYMENT_COMPLETE",
+        "itemQuantity": 1,
+        "orderShippingId": 1614629,
+        "siteProductId": 1057338,
+        "payAmount": 56430,
+        "order": {
+          "orderId": 1342028,
+          "orderNo": "190527DWC6O14D31X",
+          "orderDateTime": "2019-05-27 02:13:01"
+        },
+        "orderShippingAddress": {
+          "orderShippingAddressId": 1614510,
+          "orderShippingId": 1614629,
+          "shippingCompanyId": 1,
+          "shippingCompanyName": "업체별배송",
+          "name": "***",
+          "phone": "82 ***********",
+          "address": "서울 강남구",
+          "postcode": "01234"
+        },
+        "orderShippingMessage": {
+          "orderShippingMessageId": 1614585,
+          "orderShippingId": 1614629,
+          "message": "부재시 경비실에 맡겨 주세요."
+        }
+      }
+    ]
+  }
+}
+```
+
+### 주문 상세 조회
+
+**GET /supplier/:supplierId/orders/:orderId**
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "orderId": 1341583,
+    "orderNo": "1905260E00O24S31B",
+    "memberId": 123456,
+    "orderDateTime": "2019-05-26 23:45:17",
+    "member": {
+      "name": "***"
+    },
+    "orderProduct": [
+      {
+        "orderId": 1341583,
+        "orderProductId": 1790010,
+        "productId": 1049156,
+        "productItemId": 4683169,
+        "stateCode": "PAYMENT_COMPLETE",
+        "itemQuantity": 1,
+        "orderShippingId": 1614184,
+        "siteProductId": 1057338,
+        "payAmount": 56430,
+        "channelId": 2041,
+        "orderShipping": {
+          "orderShippingId": 1614184,
+          "shippingCompanyId": 1,
+          "invoiceNo": "",
+          "shippingCompanyName": "업체별배송",
+          "orderShippingAddress": {
+            "orderShippingId": 1614184,
+            "orderShippingAddressId": 1614065,
+            "name": "***",
+            "phone": "82 ***********",
+            "email": "****@gmail.com",
+            "postCode": "12345",
+            "address": "서울시 송파구"
+          },
+          "orderShippingMessage": {
+            "orderShippingId": 1614184,
+            "orderShippingMessageId": 1614140,
+            "message": "A동 무인택배함에 넣어주세요 감사합니다"
+          }
+        },
+        "ProductItem": {
+          "productItemId": 4683169,
+          "ProductItemStock": {
+            "orderQuantity": 3,
+            "quantity": 5
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
 ## 문의사항
 
 API와 관련된 문의사항이 있는 경우 [이슈](https://github.com/seoulstore/seoulstore-api-docs/issues)를 생성해주시거나 dev@seoulstore.com 으로 메일 부탁드립니다.
