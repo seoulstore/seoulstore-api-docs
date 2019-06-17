@@ -549,8 +549,7 @@ _output_
 {
   "status": "success",
   "data": {
-    "count": 1,
-    "rows": [
+    "items": [
       {
         "orderId": 1342028,
         "orderProductId": 1790661,
@@ -582,7 +581,10 @@ _output_
           "message": "부재시 경비실에 맡겨 주세요."
         }
       }
-    ]
+    ],
+    "total": 638,
+    "start": 0,
+    "count": 10
   }
 }
 ```
@@ -604,7 +606,7 @@ _output_
     "member": {
       "name": "***"
     },
-    "orderProduct": [
+    "orderProducts": [
       {
         "orderId": 1341583,
         "orderProductId": 1790010,
