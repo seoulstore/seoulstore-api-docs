@@ -109,3 +109,123 @@
   "tags": ["태그", "태그2"]
 }
 ```
+
+### 교환/반품 기본 형태
+
+서울스토어 API 응답중 교환/반품에 나타나는 필드는 다음을 의미합니다.
+
+| Parameter                                                               | Description               |
+| ----------------------------------------------------------------------- | ------------------------- |
+| orderNo                                                                 | 주문 코드                 |
+| memberName                                                              | 주문자                    |
+| orderReturnRequestCode                                                  | 반품 코드                 |
+| orderReturnRequestId                                                    | 반품 번호                 |
+| memberId                                                                | 회원번호                  |
+| regDatetime                                                             | 반품 신청일시             |
+| statusCode                                                              | 반품 상태 코드            |
+| requestType                                                             | 교환/반품 타입            |
+| completeDatetime                                                        | 교환/반품 완료일시        |
+| isDeleted                                                               | 삭제여부                  |
+| OrderReturnRequestAddress                                               | 배송지 정보               |
+| OrderReturnRequestAddress.phone                                         | 수령인 연락처             |
+| OrderReturnRequestAddress.name                                          | 수령인                    |
+| OrderReturnRequestAddress.postcode                                      | 우편번호                  |
+| OrderReturnRequestAddress.address                                       | 주소                      |
+| OrderReturnRequestAddress.detailAddress                                 | 상세주소                  |
+| OrderReturnRequestAddress.message                                       | 요청 메시지               |
+| Memo                                                                    | 교환 반품 사유, 설명      |
+| Memo.REASON                                                             | 교환 반품 사유            |
+| Memo.CONTENTS                                                           | 교환 반품 설명            |
+| OrderReturnRequestFile                                                  | 첨부파일                  |
+| OrderReturnRequestOrderProduct                                          | 반품상품 정보             |
+| OrderReturnRequestOrderProduct.supplierName                             | 반품상품 입점사 명        |
+| OrderReturnRequestOrderProduct.channelName                              | 반품상품 채널 명          |
+| OrderReturnRequestOrderProduct.productName                              | 반품상품 상품명           |
+| OrderReturnRequestOrderProduct.productItemId                            | 반품상품 아이템 번호      |
+| OrderReturnRequestOrderProduct.item                                     | 반품상품 옵션, 옵션값     |
+| OrderReturnRequestOrderProduct.isShippingComplete                       | 반품상품 배송 완료 여부   |
+| OrderReturnRequestOrderProduct.channelId                                | 반품상품 채널id           |
+| OrderReturnRequestOrderProduct.completeDatetime                         | 반품상품 배송 완료일시    |
+| OrderReturnRequestOrderProduct.invoiceNo                                | 반품상품 송장번호         |
+| OrderReturnRequestOrderProduct.orderProductId                           | 반품상품 상품 주문번호    |
+| OrderReturnRequestOrderProduct.quantity                                 | 반품상품 수량             |
+| OrderReturnRequestOrderProduct.shippingCompanyId                        | 반품상품 배송사 번호      |
+| OrderReturnRequestOrderProduct.statusCode                               | 반품상품 배송상태         |
+| OrderReturnRequestOrderProduct.supplierId                               | 반품상품 입점사 id        |
+| OrderReturnRequestOrderProduct.ExchangeProduct                          | 반품상품 교환상품 정보    |
+| OrderReturnRequestOrderProduct.ExchangeProduct.quantity                 | 교환상품 수량             |
+| OrderReturnRequestOrderProduct.ExchangeProduct.productItemId            | 교환상품 아이템 번호      |
+| OrderReturnRequestOrderProduct.ExchangeProduct.invoiceNo                | 교환상품 송장번호         |
+| OrderReturnRequestOrderProduct.ExchangeProduct.shippingCompanyId        | 교환상품 배송사 번호      |
+| OrderReturnRequestOrderProduct.ExchangeProduct.isShippingComplete       | 교환상품 배송사 완료 여부 |
+| OrderReturnRequestOrderProduct.ExchangeProduct.deliveryStartDatetime    | 교환상품 배송 시작일시    |
+| OrderReturnRequestOrderProduct.ExchangeProduct.deliveryCompleteDatetime | 교환상품 배송 완료일시    |
+| OrderReturnRequestOrderProduct.ExchangeProduct.item                     | 교환상품 옵션, 옵션값     |
+
+**교환/반품 응답 데이터 예제**
+
+```json
+{
+  "orderNo": "1905153R8AR14L31M",
+  "memberName": "가나다",
+  "orderReturnRequestCode": "RT_49134_20190520",
+  "orderReturnRequestId": 49134,
+  "orderId": 1310122,
+  "memberId": 1276135,
+  "regDatetime": "2019-05-20T02:26:03.000Z",
+  "statusCode": "COMPLETE",
+  "requestType": "REFUND",
+  "completeDatetime": "2019-05-23T06:01:20.000Z",
+  "isDeleted": 0,
+  "OrderReturnRequestAddress": {
+    "phone": "01044670823",
+    "memberId": 1234,
+    "name": "가나다",
+    "postcode": "34359",
+    "address": "서울 강남구 도산대로 210",
+    "detailAddress": "의화빌딩 5층",
+    "message": "오늘 늦게 들어갈 것 같아서 택배기사님을 오늘 말고 내일 보내주실 수 있으시면 감사하겠습니다. "
+  },
+  "Memo": {
+    "REASON": "PRODUCT_FAULT",
+    "CONTENTS": "로고 프린팅이 제대로 찍히지 않은 것 같습니다. 상세 설명에 있는 사진에는 선명하게 프린팅이 되어있는데 받은 상품은 프린팅 된 부분들이 거의 다 깔끔하지 않게 되어있습니다."
+  },
+  "OrderReturnRequestFile": [
+    "media_order_test/a7fb0a341108eaf636c07cf58d436390.jpeg"
+  ],
+  "OrderReturnRequestOrderProduct": [
+    {
+      "supplierName": "서울스토어",
+      "channelName": "서울스토어",
+      "productName": "[서울스토어단독] 치어 서클 로고 티셔츠",
+      "productItemId": 4125275,
+      "item": {
+        "색상": "코발트",
+        "사이즈": "L"
+      },
+      "isShippingComplete": "Y",
+      "channelId": 282,
+      "completeDatetime": "2019-05-23T06:01:20.000Z",
+      "invoiceNo": "123456789",
+      "orderProductId": 1743950,
+      "quantity": 1,
+      "shippingCompanyId": 3,
+      "statusCode": "COMPLETE",
+      "supplierId": 271,
+      "ExchangeProduct": {
+        "quantity": 1,
+        "productItemId": 4125275,
+        "invoiceNo": null,
+        "shippingCompanyId": null,
+        "isShippingComplete": "N",
+        "deliveryStartDatetime": null,
+        "deliveryCompleteDatetime": null,
+        "item": {
+          "색상": "코발트",
+          "사이즈": "L"
+        }
+      }
+    }
+  ]
+}
+```

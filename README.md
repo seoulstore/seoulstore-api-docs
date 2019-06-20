@@ -536,12 +536,12 @@ _input_
 
 _input_
 
-| Parameter | Type    | Required | Description                                 |
-| --------- | ------- | -------- | ------------------------------------------- |
-| start     | Integer |          | 리스트의 offset 입니다. `default: 0`        |
-| count     | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10` |
-| stateCode     | String |          | 주문 상태 값입니다. payment_complete (결제 완료) / product_request(상품 요청) / shipping(배송 중) / shipping_complete(배송 완료) / cancel(취소). `default: ALL` |
-| channelId     | Integer |          | 판매채널 아이디입니다. `default: ALL` |
+| Parameter | Type    | Required | Description                                                                                                                                                     |
+| --------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| start     | Integer |          | 리스트의 offset 입니다. `default: 0`                                                                                                                            |
+| count     | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10`                                                                                                                     |
+| stateCode | String  |          | 주문 상태 값입니다. payment_complete (결제 완료) / product_request(상품 요청) / shipping(배송 중) / shipping_complete(배송 완료) / cancel(취소). `default: ALL` |
+| channelId | Integer |          | 판매채널 아이디입니다. `default: ALL`                                                                                                                           |
 
 _output_
 
@@ -648,6 +648,41 @@ _output_
       }
     ]
   }
+}
+```
+
+## 교환 / 반품
+
+### 교환 / 반품 목록 조회
+
+**GET /supplier/:supplierId/return[?channelId=&start=&count]**
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "items": [
+      ReturnRequest...
+    ],
+    "total": 2237,
+    "start": 0,
+    "count": 10
+  }
+}
+```
+
+### 교환 / 반품 단일아이템 조회
+
+**GET /supplier/:supplierId/return/:orderReturnRequestId**
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": ReturnRequest
 }
 ```
 
