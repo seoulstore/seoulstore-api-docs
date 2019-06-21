@@ -655,7 +655,15 @@ _output_
 
 ### 교환 / 반품 목록 조회
 
-**GET /supplier/:supplierId/return[?channelId=&start=&count]**
+**GET /supplier/:supplierId/returns[?channelId=&start=&count]**
+
+_input_
+
+| Parameter | Type    | Required | Description                                 |
+| --------- | ------- | -------- | ------------------------------------------- |
+| start     | Integer |          | 리스트의 offset 입니다. `default: 0`        |
+| count     | Integer |          | 응답받을 아이템의 갯수입니다. `default: 10` |
+| channelId | Integer |          | 판매채널 아이디입니다. `default: ALL`       |
 
 _output_
 
@@ -675,7 +683,7 @@ _output_
 
 ### 교환 / 반품 단일아이템 조회
 
-**GET /supplier/:supplierId/return/:orderReturnRequestId**
+**GET /supplier/:supplierId/returns/`:orderReturnRequestId`**
 
 _output_
 
@@ -683,6 +691,102 @@ _output_
 {
   "status": "success",
   "data": ReturnRequest
+}
+```
+
+### 반품상품 배송등록
+
+**PATCH supplier/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/invoice**
+
+_input_
+
+| Parameter         | Type    | Required | Description   |
+| ----------------- | ------- | -------- | ------------- |
+| invoiceNo         | String  | `true`   | 송장번호      |
+| shippingCompanyId | Integer | `true`   | 배송회사 번호 |
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "channelReturnShippingPrice": 5000,
+    "isShippingComplete": "N",
+    "orderReturnRequestOrderProductId": 55177,
+    "orderProductId": 1777076,
+    "quantity": 1,
+    "orderReturnRequestId": 49668,
+    "statusCode": "COLLECT",
+    "channelId": 123,
+    "supplierId": 456,
+    "invoiceNo": 123,
+    "shippingCompanyId": 2,
+    "completeDatetime": null
+  }
+}
+```
+
+### 교환상품 배송등록
+
+**PATCH supplier/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/exchange-products/`:exchangeProductId`/invoice**
+
+_input_
+
+| Parameter         | Type    | Required | Description   |
+| ----------------- | ------- | -------- | ------------- |
+| invoiceNo         | String  | `true`   | 송장번호      |
+| shippingCompanyId | Integer | `true`   | 배송회사 번호 |
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "exchangeProductId": 13878,
+    "orderReturnRequestId": 49668,
+    "orderReturnRequestOrderProductId": 55177,
+    "siteProductId": 1050725,
+    "orderProductId": 1777076,
+    "quantity": 1,
+    "productItemId": 4246920,
+    "invoiceNo": 123,
+    "shippingCompanyId": 2,
+    "isShippingComplete": "N",
+    "deliveryStartDatetime": "2019-06-21T05:37:17.335Z",
+    "deliveryCompleteDatetime": null
+  }
+}
+```
+
+### 반품상품 상태 변경
+
+_input_
+
+| Parameter | Type   | Required | Description            |
+| --------- | ------ | -------- | ---------------------- |
+| status    | String | `true`   | 변경할 상태 'COMPLETE' | 'REJECT' |
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "channelReturnShippingPrice": 5000,
+    "isShippingComplete": "Y",
+    "orderReturnRequestOrderProductId": 55177,
+    "orderProductId": 1777076,
+    "quantity": 1,
+    "orderReturnRequestId": 49668,
+    "statusCode": "COMPLETE",
+    "channelId": 282,
+    "supplierId": 271,
+    "invoiceNo": "123",
+    "shippingCompanyId": 2,
+    "completeDatetime": "2019-06-21T05:36:43.000Z"
+  }
 }
 ```
 
