@@ -655,7 +655,7 @@ _output_
 
 ### 교환 / 반품 목록 조회
 
-**GET /supplier/:supplierId/returns[?channelId=&start=&count]**
+**GET /suppliers/:supplierId/returns[?channelId=&start=&count]**
 
 _input_
 
@@ -683,7 +683,7 @@ _output_
 
 ### 교환 / 반품 단일아이템 조회
 
-**GET /supplier/:supplierId/returns/`:orderReturnRequestId`**
+**GET /suppliers/:supplierId/returns/`:orderReturnRequestId`**
 
 _output_
 
@@ -696,7 +696,7 @@ _output_
 
 ### 반품상품 배송등록
 
-**PATCH supplier/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/invoice**
+**PATCH /suppliers//`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/invoice**
 
 _input_
 
@@ -729,7 +729,7 @@ _output_
 
 ### 교환상품 배송등록
 
-**PATCH supplier/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/exchange-products/`:exchangeProductId`/invoice**
+**PATCH /suppliers//`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/exchange-products/`:exchangeProductId`/invoice**
 
 _input_
 
@@ -762,11 +762,13 @@ _output_
 
 ### 반품상품 상태 변경
 
+**PATCH /suppliers//`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/status**
+
 _input_
 
-| Parameter | Type   | Required | Description            |
-| --------- | ------ | -------- | ---------------------- |
-| status    | String | `true`   | 변경할 상태 'COMPLETE' | 'REJECT' |
+| Parameter | Type   | Required | Description                      |
+| --------- | ------ | -------- | -------------------------------- |
+| status    | String | `true`   | 변경할 상태 'COMPLETE', 'REJECT' |
 
 _output_
 
