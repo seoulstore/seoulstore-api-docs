@@ -604,6 +604,7 @@ _output_
     "memberId": 123456,
     "orderDateTime": "2019-05-26 23:45:17",
     "member": {
+      "memberId": 123456,
       "name": "***"
     },
     "orderProducts": [
@@ -644,6 +645,138 @@ _output_
             "orderQuantity": 3,
             "quantity": 5
           }
+        }
+      }
+    ]
+  }
+}
+```
+
+### 상품 요청 처리
+
+**POST /supplier/:supplierId/order-products/packing**
+
+_input_
+
+| Parameter  | Type   | Required | Description       |
+| ---------- | ------ | -------- | ----------------- |
+| orderProductId | Array | `true`   | 품목 주문 일련번호       |
+
+```json
+{ "orderProductId": ["2784584"] }
+```
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "items": [
+      {
+        "orderId": 1337861,
+        "orderProductId": 2784584,
+        "productId": 1014459,
+        "productItemId": 4656601,
+        "stateCode": "PRODUCT_REQUEST",
+        "itemQuantity": 1,
+        "orderShippingId": 1610439,
+        "siteProductId": 1021541,
+        "payAmount": 61750,
+        "order": {
+          "orderId": 1337861,
+          "orderNo": "1905250M1AB14M31M",
+          "orderDateTime": "2019-05-25 17:43:19"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 배송 처리
+
+**POST /supplier/:supplierId/order-products/shipping**
+
+_input_
+
+| Parameter  | Type   | Required | Description       |
+| ---------- | ------ | -------- | ----------------- |
+| orderProductId | Array | `true`   | 품목 주문 일련번호       |
+| shippingCompanyId | Integer | `true`   | 배송 업체 일련번호       |
+| invoiceNo | String | `true`   | 송장 번호       |
+
+```json
+{
+  "orderProductId": ["2784584"],
+  "shippingCompanyId": 1,
+  "invoiceNo": "123456789034"
+}
+```
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "items": [
+      {
+        "orderId": 1337861,
+        "orderProductId": 2784584,
+        "productId": 1014459,
+        "productItemId": 4656601,
+        "stateCode": "SHIPPING",
+        "itemQuantity": 1,
+        "orderShippingId": 1610439,
+        "siteProductId": 1021541,
+        "payAmount": 61750,
+        "order": {
+          "orderId": 1337861,
+          "orderNo": "1905250M1AB14M31M",
+          "orderDateTime": "2019-05-25 17:43:19"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 취소 처리
+
+**DELETE /supplier/:supplierId/order-products/cancel**
+
+_input_
+
+| Parameter  | Type   | Required | Description       |
+| ---------- | ------ | -------- | ----------------- |
+| orderProductId | Array | `true`   | 품목 주문 일련번호       |
+
+```json
+{ "orderProductId": ["2784584"] }
+```
+
+_output_
+
+```json
+{
+  "status": "success",
+  "data": {
+    "items": [
+      {
+        "orderId": 1337861,
+        "orderProductId": 2784584,
+        "productId": 1014459,
+        "productItemId": 4656601,
+        "stateCode": "CANCEL",
+        "itemQuantity": 1,
+        "orderShippingId": 1610439,
+        "siteProductId": 1021541,
+        "payAmount": 61750,
+        "order": {
+          "orderId": 1337861,
+          "orderNo": "1905250M1AB14M31M",
+          "orderDateTime": "2019-05-25 17:43:19"
         }
       }
     ]
