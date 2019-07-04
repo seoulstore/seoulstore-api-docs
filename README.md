@@ -654,16 +654,16 @@ _output_
 
 ### 상품 요청 처리
 
-**POST /suppliers/:supplierId/order-products/packing**
+**PATCH /suppliers/:supplierId/order-products/packing**
 
 _input_
 
 | Parameter  | Type   | Required | Description       |
 | ---------- | ------ | -------- | ----------------- |
-| orderProductId | Array | `true`   | 품목 주문 일련번호       |
+| orderProductIds | Array | `true`   | 품목 주문 일련번호       |
 
 ```json
-{ "orderProductId": ["2784584"] }
+{ "orderProductIds": ["2784584"] }
 ```
 
 _output_
@@ -696,19 +696,19 @@ _output_
 
 ### 배송 처리 (송장 등록)
 
-**POST /suppliers/:supplierId/order-products/shipping**
+**PATCH /suppliers/:supplierId/order-products/shipping**
 
 _input_
 
 | Parameter  | Type   | Required | Description       |
 | ---------- | ------ | -------- | ----------------- |
-| orderProductId | Array | `true`   | 품목 주문 일련번호       |
+| orderProductIds | Array | `true`   | 품목 주문 일련번호       |
 | shippingCompanyId | Integer | `true`   | 배송 업체 일련번호       |
 | invoiceNo | String | `true`   | 송장 번호       |
 
 ```json
 {
-  "orderProductId": ["2784584"],
+  "orderProductIds": ["2784584"],
   "shippingCompanyId": 1,
   "invoiceNo": "123456789034"
 }
@@ -744,16 +744,16 @@ _output_
 
 ### 취소 처리
 
-**DELETE /suppliers/:supplierId/order-products/cancel**
+**PATCH /suppliers/:supplierId/order-products/cancel**
 
 _input_
 
 | Parameter  | Type   | Required | Description       |
 | ---------- | ------ | -------- | ----------------- |
-| orderProductId | Array | `true`   | 품목 주문 일련번호       |
+| orderProductIds | Array | `true`   | 품목 주문 일련번호       |
 
 ```json
-{ "orderProductId": ["2784584"] }
+{ "orderProductIds": ["2784584"] }
 ```
 
 _output_
