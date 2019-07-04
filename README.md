@@ -1045,17 +1045,6 @@ _output_
 }
 ```
 
-### 입점사 게시판 질문 타입
-
-**GET /boards/types**
-
-_output_
-
-```json
-```
-
-
-
 ### 고객 주문 문의
 
 **GET /suppliers/:supplierId/boards/orders**
@@ -1117,7 +1106,19 @@ _output_
 
 _output_
 
+```
 고객 주문 문의와 동일 합니다.
+```
+
+
+### 입점사 게시판 질문 타입
+
+**GET /boards/types**
+
+_output_
+
+```json
+```
 
 
 ### 고객 문의 게시판 카테고리
@@ -1129,11 +1130,35 @@ _output_
 ```json
 ```
 
+### 입점사 게시판 게시물 등록
+
+**POST /suppliers/:supplierId/boards/qna**
+
+_input_
+
+| Parameter | Type   | Required | Description                      |
+| --------- | ------ | -------- | -------------------------------- |
+| orderProductId    | Number | `true`   | 주문 상품 시퀀스 |
+| type | String |   | default `ETC` |
+| subject | String | `true` | 게시 제목 |
+| contents | String | `true` | 게시 내용 |
+
+
+_output_
+
+```json
+```
+
+
 ### 입점사 게시판/고객 게시판 문의 답변
 
 **POST /suppliers/:supplierId/boards/[qna|products|orders]/articles/:boardArticleId**
 
 _input_
+
+| Parameter | Type   | Required | Description                      |
+| --------- | ------ | -------- | -------------------------------- |
+| contents | String | `true` | 답변 내용 |
 
 _output_
 
