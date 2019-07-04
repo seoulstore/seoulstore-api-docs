@@ -526,6 +526,8 @@ _input_
 
 ### 상품 아이템 삭제
 
+아래 API는 상품의 모든 옵션 및 아이템을 삭제하여 초기화 시킵니다.
+
 **DELETE /products/:siteProductId/items**
 
 ## 주문
