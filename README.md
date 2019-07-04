@@ -532,7 +532,7 @@ _input_
 
 ### 주문 상품 목록
 
-**GET /supplier/:supplierId/order-products**
+**GET /suppliers/:supplierId/order-products**
 
 _input_
 
@@ -591,7 +591,7 @@ _output_
 
 ### 주문 상세 조회
 
-**GET /supplier/:supplierId/orders/:orderId**
+**GET /suppliers/:supplierId/orders/:orderId**
 
 _output_
 
@@ -654,7 +654,7 @@ _output_
 
 ### 상품 요청 처리
 
-**POST /supplier/:supplierId/order-products/packing**
+**POST /suppliers/:supplierId/order-products/packing**
 
 _input_
 
@@ -694,9 +694,9 @@ _output_
 }
 ```
 
-### 배송 처리
+### 배송 처리 (송장 등록)
 
-**POST /supplier/:supplierId/order-products/shipping**
+**POST /suppliers/:supplierId/order-products/shipping**
 
 _input_
 
@@ -744,7 +744,7 @@ _output_
 
 ### 취소 처리
 
-**DELETE /supplier/:supplierId/order-products/cancel**
+**DELETE /suppliers/:supplierId/order-products/cancel**
 
 _input_
 
@@ -827,9 +827,9 @@ _output_
 }
 ```
 
-### 반품상품 배송등록
+### 반품상품 배송등록 
 
-**PATCH /suppliers//`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/invoice**
+**PATCH /suppliers/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/invoice**
 
 _input_
 
@@ -860,9 +860,9 @@ _output_
 }
 ```
 
-### 교환상품 배송등록
+### 교환상품 배송등록 (송장등록)
 
-**PATCH /suppliers//`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/exchange-products/`:exchangeProductId`/invoice**
+**PATCH /suppliers/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/exchange-products/`:exchangeProductId`/invoice**
 
 _input_
 
@@ -895,7 +895,7 @@ _output_
 
 ### 반품상품 상태 변경
 
-**PATCH /suppliers//`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/status**
+**PATCH /suppliers/`:supplierId`/returns/`:orderReturnRequestId`/return-products/`:orderReturnRequestOrderProductId`/status**
 
 _input_
 
