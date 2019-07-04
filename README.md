@@ -13,6 +13,7 @@
   - [상품 아이템](#상품-아이템)
   - [주문](#주문)
   - [교환 반품](#교환-반품)
+  - [게시판 (wip)] (#게시판)
 - [문의사항](#문의사항)
 - [부록](appendix.md)
 
@@ -926,6 +927,220 @@ _output_
   }
 }
 ```
+
+## 게시판
+
+### 공지사항
+
+**GET /suppliers/:supplierId/boards/notices**
+
+_description_
+
+입점사 전용 공지사항 게시판입니다.
+
+_output_
+
+```json
+{
+    "status": "success",
+    "data": {
+        "items": [
+            {
+                "boardId": 2,
+                "boardArticleId": 3579,
+                "supplierId": 0,
+                "siteProductId": null,
+                "orderProductId": null,
+                "type": "ETC",
+                "isFinish": 0,
+                "subject": "[알림] 서울스토어X샵링커 시스템 연동 안내",
+                "contents": "안녕하세요 서울스토어 입니다.<br />이번에 샵링커와 시스템 연동을 완료 하였습니다.<br />앞으로 많은 이용 바랍니다.<br />시스템 연동방법은 샵링커 사이트에서 확인 가능합니다.<br /><br />현재 연동 가능한 SCM 업체는 사방넷,이지어드민,샵링커 입니다.<br />해당 SCM 사용 입점사들께서는 시스템 연동을 통해 업무에 도움이<br />되셨으면 합니다.<br /><br />감사합니다.",
+                "adminId": 472,
+                "regDatetime": "2018-05-02T06:45:32.000Z",
+                "editDatetime": "2018-05-02T06:45:32.000Z",
+                "typeText": "기타",
+                "writer": "서울스토어",
+                "supplier": {
+                    "name": "입점사 전체"
+                },
+                "siteProduct": {},
+                "order": {}
+            },
+            ...
+            
+        ],
+        "start": 0,
+        "count": 10,
+        "total": 8
+    }
+}
+
+```
+
+### 입점사 문의 게시판
+
+**GET /suppliers/:supplierId/boards/qna**
+
+_description_
+
+서울스토어와 입점사 간의 게시판 입니다.
+
+_output_
+
+```json
+{
+    "status": "success",
+    "data": {
+        "items": [
+            {
+                "boardId": 1,
+                "boardArticleId": 5696,
+                "supplierId": 761,
+                "siteProductId": 1050664,
+                "orderProductId": 1731844,
+                "type": "RETURN",
+                "isFinish": 1,
+                "subject": "[서울스토어] 반품건",
+                "contents": "안녕하세요:)<br />자녀분 주문건으로 서울스토어에서 반품접수가 불가능하다고 하셔서, 게시판 문의글에 답변 주신 반품처 주소지로 5천원 동봉하여 발송 요청 드렸습니다.<br />17일 배송완료건이나 전산상 접수내역 확인이 안되어 전달드리니, 반품입고 확인되시면 환불처리 부탁드리겠습니다.",
+                "adminId": 1167,
+                "regDatetime": "2019-05-23T02:18:45.000Z",
+                "editDatetime": "2019-05-23T02:18:45.000Z",
+                "typeText": "반품",
+                "writer": "서울스토어",
+                "supplier": {
+                    "name": "주식회사 올아이원트"
+                },
+                "siteProduct": {
+                    "siteProductId": 1050664,
+                    "siteProductName": "나이키 반바지 (Swoosh)",
+                    "channelId": 1174,
+                    "channelName": "나이키"
+                },
+                "order": {
+                    "orderId": 1301968,
+                    "orderNo": "1905126XACC14Q31O",
+                    "productName": "나이키 반바지 (Swoosh)",
+                    "productItemId": 4228623,
+                    "productItemOptionValues": [
+                        {
+                            "productOptionId": 2057051,
+                            "productOptionValueId": 4925087,
+                            "productOptionDescription": "색상",
+                            "productOptionValueDescription": "블랙"
+                        },
+                        {
+                            "productOptionId": 2057052,
+                            "productOptionValueId": 4925094,
+                            "productOptionDescription": "사이즈",
+                            "productOptionValueDescription": "80 (95 size)"
+                        }
+                    ]
+                }
+            }
+        ],
+        "start": 0,
+        "count": 10,
+        "total": 1
+    }
+}
+```
+
+### 입점사 게시판 질문 타입
+
+**GET /boards/types**
+
+_output_
+
+```json
+```
+
+
+
+### 고객 주문 문의
+
+**GET /suppliers/:supplierId/boards/orders**
+
+_output_
+
+```json
+{
+    "status": "success",
+    "data": {
+        "items": [
+            {
+                "boardArticleId": 347990,
+                "boardId": 11,
+                "boardCategoryId": 37,
+                "subject": "배송문의요",
+                "memberId": 1273218,
+                "editDatetime": "2019-07-04T05:22:53.000Z",
+                "commentCount": 5,
+                "siteProductId": 1012643,
+                "orderProductId": 1722743,
+                "regDatetime": "2019-05-09T15:08:52.000Z",
+                "boardCategoryText": "배송",
+                "writer": "G1",
+                "siteProduct": {
+                    "siteProductId": 1012643,
+                    "siteProductName": "SEXY CHAMPION DUCK2",
+                    "channelId": 1098,
+                    "channelName": "섹시챔피온"
+                },
+                "order": {
+                    "orderId": 1295803,
+                    "orderNo": "190510DB35L14N31I",
+                    "productName": "SEXY CHAMPION DUCK2",
+                    "productItemId": 3110682,
+                    "productItemOptionValues": [
+                        {
+                            "productOptionId": 1766666,
+                            "productOptionValueId": 3978523,
+                            "productOptionDescription": "사이즈",
+                            "productOptionValueDescription": "L"
+                        }
+                    ]
+                },
+                "contents": "주문한 두 제품 내일 바로 당일배송인가요?"
+            },
+            ...
+        ],
+        "start": 0,
+        "count": 10,
+        "total": 35
+    }
+}
+```
+
+###  고객 상품 문의
+
+**GET /suppliers/:supplierId/boards/orders**
+
+_output_
+
+고객 주문 문의와 동일 합니다.
+
+
+### 고객 문의 게시판 카테고리
+
+**GET /boards/categories**
+
+_output_
+
+```json
+```
+
+### 입점사 게시판/고객 게시판 문의 답변
+
+**POST /suppliers/:supplierId/boards/[qna|products|orders]/articles/:boardArticleId**
+
+_input_
+
+_output_
+
+```json
+```
+
+
 
 ## 문의사항
 
