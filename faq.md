@@ -45,5 +45,5 @@ A. 서울스토어에 상품을 생성하는 순서는 다음과 같은 순서�
 A. 상품 URL 뒤에 `/force`를 붙여서 브라우저 주소창에 입력하면 아직 승인 나지 않은 상품도 미리 열람할 수 있습니다.
 
 eg. 
-* 스테이지의 경우 https://yangju.seoulstore.com/products/`:siteProductId`/detail/force
-* 프로덕션의 경우 https://www.seoulstore.com/products/`:siteProductId`/detail/force
+* 스테이지의 경우 https://yangju.seoulstore.com/products/:siteProductId/detail/force
+* 프로덕션의 경우 https://www.seoulstore.com/products/:siteProductId/detail/force
