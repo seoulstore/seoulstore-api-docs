@@ -621,6 +621,7 @@ _output_
         "itemQuantity": 1,
         "orderShippingId": 1614184,
         "siteProductId": 1057338,
+        "productName": "(해외)나이키 제이크루 킬샷2 화이트",
         "payAmount": 56430,
         "channelId": 2041,
         "orderShipping": {
@@ -648,7 +649,21 @@ _output_
           "ProductItemStock": {
             "orderQuantity": 3,
             "quantity": 5
-          }
+          },
+          "options": [
+            {
+              "productOptionId": 2160699,
+              "productOptionValueId": 5241313,
+              "option": "STYLE",
+              "value": "KILLSHOT 2/WHITE"
+            },
+            {
+              "productOptionId": 2160700,
+              "productOptionValueId": 5241317,
+              "option": "SIZE",
+              "value": "US9.5(275)"
+            }
+          ]
         }
       }
     ]
