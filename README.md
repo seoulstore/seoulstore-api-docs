@@ -461,18 +461,18 @@ _output_
 
 _input_
 
-| Parameter            | Type   | Required | Description |
-| -------------------- | ------ | -------- | ----------- |
-| barcode              | String |          |             |
-| externalStockCode    | String |          |             |
-| isManageStock        | String |          |             |
-| point                | String |          |             |
-| price                | String |          |             |
-| productItemCode      | String |          |             |
-| productItemUserCode1 | String |          |             |
-| productItemUserCode2 | String |          |             |
-| qrcodeImage          | String |          |             |
-| supplyPrice          | String |          |             |
+| Parameter            | Type   | Required | Description                                            |
+| -------------------- | ------ | -------- | ------------------------------------------------------ |
+| barcode              | String |          | 바코드                                                 |
+| externalStockCode    | String |          | 외부코드                                               |
+| isManageStock        | String |          | 아이템 재고관리 여부 (0 일경우에는 재고 수정 되지않음) |
+| point                | String |          | 아이템 주문시 추가 지급 포인트                         |
+| price                | String |          | 아이템 주문시 추가금                                   |
+| productItemCode      | String |          | 품목 코드                                              |
+| productItemUserCode1 | String |          | 사용자 품목 코드 1                                     |
+| productItemUserCode2 | String |          | 사용자 품목 코드 2                                     |
+| qrcodeImage          | String |          | QR코드 이미지                                          |
+| supplyPrice          | String |          | 옵션공급가격                                           |
 
 _output_
 
