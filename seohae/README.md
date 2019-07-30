@@ -167,3 +167,86 @@ _out put_
     }
 }
 ```
+
+_description_
+
+* salePrice: 판매가
+* settlementPrice: 정산가
+* items.options: 판매 상품의 옵션 기본 정보
+* items.values: 선택/판매 가능한 옵션
+
+_items examples_
+
+상품의 옵션 중, 다중 선택이 가능할 경우에 대한 예시 입니다. 예시의 옵션은 아래와 같이 표현 됩니다.
+* COLOR: KHAKI, SIZE: S
+* COLOR: KHAKI, SIZE: M
+
+```json
+
+        "items": {
+            "options": [
+                {
+                    "productOptionId": 2360314,
+                    "productOptionText": "COLOR",
+                    "optionValues": [
+                        {
+                            "productOptionValueId": 5964360,
+                            "productId": 1049830,
+                            "productOptionId": 2360314,
+                            "isDeleted": 0,
+                            "sortOrder": 0,
+                            "optionValueText": "KHAKI"
+                        }
+                    ]
+                },
+                {
+                    "productOptionId": 2360315,
+                    "productOptionText": "SIZE",
+                    "optionValues": [
+                        {
+                            "productOptionValueId": 5964361,
+                            "productId": 1049830,
+                            "productOptionId": 2360315,
+                            "isDeleted": 0,
+                            "sortOrder": 0,
+                            "optionValueText": "S"
+                        },
+                        {
+                            "productOptionValueId": 5964362,
+                            "productId": 1049830,
+                            "productOptionId": 2360315,
+                            "isDeleted": 0,
+                            "sortOrder": 1,
+                            "optionValueText": "M"
+                        }
+                    ]
+                }
+            ],
+            "values": [
+                {
+                    "productItemId": 5644728,
+                    "addPrice": 0,
+                    "salePrice": 69000,
+                    "settlementPrice": 62100,
+                    "barcode": "",
+                    "isSoldOut": false,
+                    "optionValueIds": [
+                        5964360,
+                        5964361
+                    ]
+                },
+                {
+                    "productItemId": 5644729,
+                    "addPrice": 0,
+                    "salePrice": 69000,
+                    "settlementPrice": 62100,
+                    "barcode": "",
+                    "isSoldOut": false,
+                    "optionValueIds": [
+                        5964360,
+                        5964362
+                    ]
+                }
+            ]
+        }
+```
