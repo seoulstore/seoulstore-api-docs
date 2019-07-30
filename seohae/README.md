@@ -250,3 +250,10 @@ _items examples_
             ]
         }
 ```
+
+
+### 브랜드 
+
+**GET /seohae/brands**
+
+작성예정
