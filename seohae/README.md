@@ -257,3 +257,5 @@ _items examples_
 **GET /seohae/brands**
 
 작성예정
+
+2019.08.01 22:09 작업로그
