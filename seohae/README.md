@@ -88,17 +88,16 @@ _out put_
 {
     "product": {
         "productId": 963700,
-        "brandId": 443,
-        "channelId": 470,
+        "brandId": 470,
         "isDeleted": 0,
         "isSoldOut": false,
         "salePrice": 42000,
         "settlementPrice": 37800,
         "minimum": 0,
         "maximum": 0,
-        "categoryId": 1000,
-        "channelName": "어나더프레임",
-        "categoryName": "여성",
+        "categoryIds": [1000],
+        "brandName": "어나더프레임",
+        "categoryNames": ["여성"],
         "productName": "[어나더프레임] ANOTHER FRAME - AF LABEL STRIPE T-SHIRT (BLUE/BEIGE) 긴팔 긴팔티 티셔츠",
         "productDescription": "",
         "productTags": [
@@ -257,4 +256,4 @@ _items examples_
 
 작성예정
 
-2019.08.01 22:09 작업로그
+
