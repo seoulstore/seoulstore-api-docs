@@ -51,16 +51,15 @@ _out put_
     "products": [
         {
             "productId": 1084068,
-            "brandId": 959,
-            "channelId": 1504,
+            "brandId": 1504,
             "isDeleted": 0,
             "isSoldOut": false,
             "salePrice": 8000,
             "minimum": 0,
             "maximum": 0,
-            "categoryId": 1274,
-            "channelName": "에뛰드하우스",
-            "categoryName": "뷰티",
+            "categoryIds": [1274],
+            "barndName": "에뛰드하우스",
+            "categoryNames": ["뷰티"],
             "productName": "투톤 트리트먼트 헤어 컬러",
             "productDescription": "<table id=\"Table_01\" class=\" cke_show_border\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tbody>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img1.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img1.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img2.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img2.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img3.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img3.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img4.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img4.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img5.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img5.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img6.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img6.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img7.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img7.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img8.gif\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img8.gif\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img9.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/two_tone_hair/images/two_tone_hair_img9.jpg\" /></td>\n</tr>\n<tr>\n<td><img src=\"http://etude.speedgabia.com/webcatalogue/2018/06/reset_tissue/images/reset_tissue_co.jpg\" data-cke-saved-src=\"http://etude.speedgabia.com/webcatalogue/2018/06/reset_tissue/images/reset_tissue_co.jpg\" /></td>\n</tr>\n</tbody>\n</table>",
             "productTags": [
